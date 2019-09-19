@@ -72,8 +72,7 @@ def main():
 
     parser.add_argument(
         'table',
-        help='Numéro de la table de multiplication.',
-        default='1, 2, 3, 4, 5, 6, 7, 8, 9'
+        help='Numéro de la table de multiplication.'
     )
 
     parser.add_argument(
@@ -114,10 +113,11 @@ def main():
     # ----------------------------------------------------
 
     logging.basicConfig(
-        filename=extract_filename(s_filename) + '.log',
+        # filename=extract_filename(s_filename) + '.log',
+        handlers=[logging.FileHandler('toto.log', 'w', 'utf-8')],
         format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
         datefmt='%d/%m/%Y-%H:%M',
-        filemode='w',
+        # filemode='w',
         level=getattr(logging, args.sLogLevel)
     )
 
